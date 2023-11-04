@@ -31,6 +31,7 @@ export function activate(context: vscode.ExtensionContext) {
   const colorOnWhiteSpaceOnly = vscode.workspace.getConfiguration('indentRainbow')['colorOnWhiteSpaceOnly'] || false;
   const indicatorStyle = vscode.workspace.getConfiguration('indentRainbow')['indicatorStyle'] || 'classic';
   const lightIndicatorStyleLineWidth = vscode.workspace.getConfiguration('indentRainbow')['lightIndicatorStyleLineWidth'] || 1;
+	const indentRegex = vscode.workspace.getConfiguration('indentRainbow')['indentRegex'] || "^[\\t ]+";
 
   // Colors will cycle through, and can be any size that you want
   const colors = vscode.workspace.getConfiguration('indentRainbow')['colors'] || [
@@ -162,7 +163,8 @@ export function activate(context: vscode.ExtensionContext) {
     if (!activeEditor) {
       return;
     }
-    var regEx = /^[\t ]+/gm;
+    // var regEx = /^[\t ]+/gm;
+		var regEx = RegExp(indentRegex, "gm");
     var text = activeEditor.document.getText();
     var tabSizeRaw = activeEditor.options.tabSize;
     var tabSize = 4

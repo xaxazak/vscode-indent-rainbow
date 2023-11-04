@@ -33,10 +33,17 @@ Although you can use it as it is, there is the possibility to configure some asp
 
   // The delay in ms until the editor gets updated.
   "indentRainbow.updateDelay": 100 // 10 makes it super fast but may cost more resources
+	
+  // For custom detection of indents, set this regex:
+  "indentRainbow.indentRegex": "^[\t ]+" // consider spaces and tabs as indent characters (default)
+	// "^[\t]+" = only consider tabs as indent characters.
+	// "^[ ]+" = only consider spaces as indent characters.
+	// "^[\t ]*\t" = indents must end in a tab. Combined with the tabmixColor option (below), this will only consider tabs as valid indent characters, and warn if spaces are before tabs in the indent.
+	// "^[\t ]* " = indents must end in a space. Combined with the tabmixColor option (below), this will only consider spaces as valid indent characters, and warn if tabs are before spaces in the indent.
 ```
 
 *Notice: Defining both `includedLanguages` and `excludedLanguages` does not make much sense. Use one of both!*
-
+z
 You can configure your own colors by adding and tampering with the following code:
 
 ```js

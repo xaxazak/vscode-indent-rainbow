@@ -101,7 +101,12 @@
                     "type": "number",
                     "default": 1,
                     "description": "This property defines the indent indicator lineWidth when using light mode."
-                }
+                },
+								"indentRainbow.indentRegex": {
+									"type": "string",
+									"default": "^[\\t ]+",
+									"description": "The regular expression that matches indentation. To only match tabs, use \"^[\\t]+\". To only match spaces, use \"^[ ]+\"."
+								}
             }
         }
     },
